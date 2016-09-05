@@ -16,7 +16,7 @@ unzip(zipfile="./data/Dataset.zip",exdir="./data")
 x_train <- read.table("./data/UCI HAR Dataset/train/X_train.txt")
 y_train <- read.table("./data/UCI HAR Dataset/train/y_train.txt")
 subject_train <- read.table("./data/UCI HAR Dataset/train/subject_train.txt")
- # Reading testing tables:
+# Reading testing tables:
 x_test <- read.table("./data/UCI HAR Dataset/test/X_test.txt")
 y_test <- read.table("./data/UCI HAR Dataset/test/y_test.txt")
 subject_test <- read.table("./data/UCI HAR Dataset/test/subject_test.txt")
@@ -47,10 +47,10 @@ colNames <- colnames(setAllInOne)
 
 #3.2 Create vector for defining ID, mean and standard deviation:
 mean_and_std <- (grepl("activityId" , colNames) | 
-                                 grepl("subjectId" , colNames) | 
-                                 grepl("mean.." , colNames) | 
-                                 grepl("std.." , colNames) 
-                                 )
+                 grepl("subjectId" , colNames) | 
+                 grepl("mean.." , colNames) | 
+                 grepl("std.." , colNames) 
+                 )
                                  
 #3.3 Making nessesary subset from setAllInOne:
 setForMeanAndStd <- setAllInOne[ , mean_and_std == TRUE]
@@ -58,9 +58,9 @@ setForMeanAndStd <- setAllInOne[ , mean_and_std == TRUE]
 
 # 4. Using descriptive activity names to name the activities in the data set:
 setWithActivityNames <- merge(setForMeanAndStd, activityLabels,
-                               							   by='activityId',
-                                                           all.x=TRUE)
-                                                           
+                              by='activityId',
+                              all.x=TRUE)
+
 
 # 5. Creating a second, independent tidy data set with the average of each variable for each activity and each subject:
 
